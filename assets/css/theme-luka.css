@@ -1,23 +1,31 @@
 :root {
-  --bg: #faf9f7;
-  --surface: #ffffff;
-  --text: #34322d;
-  --muted: #777167;
-  --accent: #2f6f57;
-  --accent-soft: rgba(47, 111, 87, 0.1);
-  --border: rgba(52, 50, 45, 0.12);
-  --shadow: rgba(39, 58, 49, 0.1);
+  --bg: #f7f6f2;
+  --surface: #fcfbf8;
+  --surface-raised: #ffffff;
+  --text: #2d2b27;
+  --muted: #746f67;
+  --accent: #b85c3a;
+  --accent-hover: #99482d;
+  --accent-soft: rgba(184, 92, 58, 0.09);
+  --border: rgba(50, 45, 40, 0.1);
+  --border-strong: rgba(50, 45, 40, 0.17);
+  --shadow: rgba(54, 45, 38, 0.09);
+  --shadow-card: 0 1px 2px rgba(49, 43, 38, 0.04), 0 12px 32px rgba(49, 43, 38, 0.06);
 }
 
 [data-theme="dark"] {
-  --bg: #171a18;
-  --surface: #202522;
-  --text: #e4e8e5;
-  --muted: #a3aaa5;
-  --accent: #72bd99;
-  --accent-soft: rgba(114, 189, 153, 0.13);
-  --border: rgba(228, 232, 229, 0.13);
-  --shadow: rgba(0, 0, 0, 0.3);
+  --bg: #191816;
+  --surface: #211f1c;
+  --surface-raised: #24221f;
+  --text: #ebe7df;
+  --muted: #aaa39a;
+  --accent: #df8966;
+  --accent-hover: #f0a07d;
+  --accent-soft: rgba(223, 137, 102, 0.12);
+  --border: rgba(235, 231, 223, 0.09);
+  --border-strong: rgba(235, 231, 223, 0.16);
+  --shadow: rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 14px 38px rgba(0, 0, 0, 0.16);
 }
 
 * {
@@ -36,6 +44,7 @@ body.theme-luka {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.65;
+  letter-spacing: -0.006em;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -56,9 +65,9 @@ body.theme-luka a:hover {
   height: 60px;
   display: flex;
   justify-content: center;
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(130%);
 }
 
 .nav-container {
@@ -92,6 +101,7 @@ body.theme-luka a:hover {
   color: var(--text);
   font-size: 18px;
   cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .theme-toggle:hover {
@@ -130,16 +140,21 @@ body.theme-luka a:hover {
   width: 184px;
   height: 184px;
   margin: 0 auto 28px;
-  display: grid;
-  place-items: center;
+  padding: 5px;
+  position: relative;
   border-radius: 50%;
-  background: var(--surface);
-  box-shadow: 0 8px 28px var(--shadow);
+  overflow: hidden;
+  background:
+    linear-gradient(var(--surface-raised), var(--surface-raised)) padding-box,
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 55%, transparent), var(--border)) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 14px 42px var(--shadow);
 }
 
 .image.avatar img {
   width: 100%;
   height: 100%;
+  display: block;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -178,9 +193,10 @@ body.theme-luka a:hover {
   display: inline-grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--surface);
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
   color: var(--muted);
-  box-shadow: 0 3px 12px var(--shadow);
+  box-shadow: 0 2px 8px var(--shadow);
   transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
@@ -210,13 +226,26 @@ body.theme-luka a:hover {
 }
 
 .section-title {
-  display: inline-block;
+  position: relative;
+  display: inline-flex;
   margin: 0 0 18px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--accent);
-  color: var(--accent);
-  font-size: 20px;
+  padding-bottom: 10px;
+  color: var(--text);
+  font-size: 21px;
+  font-weight: 650;
   line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
 }
 
 .section-body p {
@@ -267,7 +296,7 @@ body.theme-luka a:hover {
 .project-period {
   color: var(--accent);
   font-size: 13px;
-  font-weight: 550;
+  font-weight: 600;
 }
 
 .timeline-item {
@@ -311,46 +340,132 @@ body.theme-luka a:hover {
 
 .project-list {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .project-card {
-  padding: 19px 21px;
+  position: relative;
+  overflow: hidden;
+  padding: 23px 24px 21px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--surface) 70%, transparent);
-  box-shadow: 0 4px 16px var(--shadow);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-raised) 96%, var(--accent)), var(--surface-raised));
+  box-shadow: var(--shadow-card);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 40%, transparent), transparent);
+  opacity: 0.7;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 3px rgba(49, 43, 38, 0.05), 0 18px 42px var(--shadow);
 }
 
 .project-heading {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
 }
 
-.project-heading a {
+.project-title {
+  color: var(--text) !important;
   font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
 }
 
-.project-heading a:hover {
-  text-decoration: none;
+.project-title:hover {
+  color: var(--accent) !important;
 }
 
 .project-card p {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   font-size: 14px;
 }
 
 .project-subtitle {
+  margin-top: 4px !important;
   color: var(--muted);
-  font-weight: 550;
+  font-size: 13.5px !important;
+  font-weight: 500;
+}
+
+.project-period {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  padding: 4px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.project-description {
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+  line-height: 1.7;
+}
+
+.project-footer {
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 .tech-stack {
-  color: var(--accent);
-  font-size: 12.5px !important;
-  font-weight: 550;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-stack span {
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.github-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text) !important;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 1px 2px var(--shadow);
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
+}
+
+.github-link:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--accent-soft);
+  color: var(--accent) !important;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .skills-grid {
@@ -360,10 +475,11 @@ body.theme-luka a:hover {
 }
 
 .skill-item {
-  padding: 14px 16px;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-soft);
-  border-radius: 0 10px 10px 0;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-raised) 82%, transparent);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px var(--shadow);
 }
 
 .skill-item strong,
@@ -374,6 +490,7 @@ body.theme-luka a:hover {
 .skill-item strong {
   margin-bottom: 3px;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .skill-item span {
@@ -442,8 +559,18 @@ body.theme-luka a:hover {
   }
 
   .project-period {
-    display: block;
-    margin-top: 2px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .project-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .github-link {
+    width: 100%;
+    justify-content: center;
   }
 
   .experience-item {
