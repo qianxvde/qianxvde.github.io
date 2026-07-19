@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ziqian Guo - Homepage</title>
-  <meta name="description" content="Ziqian Guo is an undergraduate at China Agricultural University working on humanoid robot soccer, reinforcement learning locomotion, motion retargeting, and robot deployment.">
+  <meta name="description" content="Ziqian Guo is an undergraduate at China Agricultural University working on humanoid robot soccer, fall recovery, motion retargeting, and robot deployment.">
   <meta name="keywords" content="Ziqian Guo, China Agricultural University, humanoid robot, RoboCup, reinforcement learning, motion control, ROS2, MJLab">
   <link rel="canonical" href="https://qianxvde.github.io/">
   <link rel="icon" href="assets/img/cau_logo.png" type="image/png">
@@ -62,7 +62,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="section-body">
           <p>Hello! I am <strong>Ziqian Guo</strong>, an undergraduate student in Mechanical Design, Manufacturing and Automation at <strong>China Agricultural University</strong>.</p>
-          <p>I work on <strong>humanoid robot soccer</strong>, with a focus on reinforcement-learning-based locomotion, motion control, ROS2 strategy integration, and simulation-to-real deployment. My current goals are stable walking, kicking motion generation, match strategy, and safe policy deployment for Booster humanoid robots.</p>
+          <p>I work on <strong>humanoid robot soccer</strong>, with a focus on reinforcement-learning-based fall recovery, motion control, ROS2 strategy integration, and simulation-to-real deployment. My current goals are robust get-up recovery, match strategy, and safe policy deployment on humanoid platforms.</p>
           <p><strong><a class="cv-link" href="assets/cv/Ziqian_Guo_CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Download my CV</a></strong></p>
         </div>
       </section>
@@ -111,17 +111,17 @@
           <article class="card project-card">
             <div class="project-heading">
               <div>
-                <a class="project-title" href="https://github.com/qianxvde/booster_mjlab" target="_blank" rel="noopener">booster_mjlab</a>
-                <p class="project-subtitle">Reinforcement Learning Locomotion for Booster T1/K1</p>
+                <a class="project-title" href="https://github.com/qianxvde/my_mjlab" target="_blank" rel="noopener">my_mjlab</a>
+                <p class="project-subtitle">Humanoid Fall Recovery RL (loco_recovery)</p>
               </div>
               <span class="project-period">May 2026 - Present</span>
             </div>
-            <p class="project-description">MJLab-based training environments for flat-ground and rough-terrain humanoid walking. The repository brings together robot models, task registration, motion data, training and evaluation scripts, policy replay, and log inspection as a foundation for RoboCup walking and kicking skills.</p>
+            <p class="project-description">MJLab-based fall-recovery training for flat and rough terrain. It bundles robot models, loco_recovery task registration, motion data, training/evaluation scripts, and log inspection for humanoid get-up behavior.</p>
             <div class="project-footer">
               <div class="tech-stack" aria-label="Technologies">
                 <span>MJLab</span><span>MuJoCo</span><span>RSL-RL</span><span>PPO</span><span>Python</span>
               </div>
-              <a class="github-link" href="https://github.com/qianxvde/booster_mjlab" target="_blank" rel="noopener" aria-label="View booster_mjlab on GitHub">
+              <a class="github-link" href="https://github.com/qianxvde/my_mjlab" target="_blank" rel="noopener" aria-label="View my_mjlab on GitHub">
                 <i class="fa-brands fa-github"></i> GitHub <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -135,7 +135,7 @@
               </div>
               <span class="project-period">June 2026 - Present</span>
             </div>
-            <p class="project-description">A Booster-oriented motion pipeline for clipping, previewing, retargeting, and converting CSV, PKL, and BVH motion data. It connects external human motion datasets to T1/K1 joint mappings and prepares reference data for walking and kicking policy training.</p>
+            <p class="project-description">A humanoid motion pipeline for clipping, previewing, retargeting, and converting CSV, PKL, and BVH motion data. It connects external human motion datasets to robot joint mappings and prepares reference data for recovery and imitation training.</p>
             <div class="project-footer">
               <div class="tech-stack" aria-label="Technologies">
                 <span>AMASS</span><span>SMPL/SMPL-X</span><span>BVH</span><span>Retargeting</span><span>Python</span>
@@ -149,17 +149,17 @@
           <article class="card project-card">
             <div class="project-heading">
               <div>
-                <a class="project-title" href="https://github.com/qianxvde/booster_wbc_fsm" target="_blank" rel="noopener">booster_wbc_fsm</a>
+                <a class="project-title" href="https://github.com/qianxvde/my_wbc_fsm" target="_blank" rel="noopener">my_wbc_fsm</a>
                 <p class="project-subtitle">Robot Policy Deployment and Safety FSM Framework</p>
               </div>
               <span class="project-period">July 2026 - Present</span>
             </div>
-            <p class="project-description">A lightweight finite-state-machine framework for standing, walking, policy execution, and safety protection. It validates joint order, observations, action scale, and control frequency, while adding command filtering and staged checks from passive mode to low-speed hardware tests.</p>
+            <p class="project-description">A lightweight finite-state-machine framework for standing, recovery policy execution, and safety protection. It validates joint order, observations, action scale, and control frequency, while adding command filtering and staged checks from passive mode to low-speed hardware tests.</p>
             <div class="project-footer">
               <div class="tech-stack" aria-label="Technologies">
                 <span>C++</span><span>ROS2</span><span>FSM</span><span>Deployment</span><span>Safety</span>
               </div>
-              <a class="github-link" href="https://github.com/qianxvde/booster_wbc_fsm" target="_blank" rel="noopener" aria-label="View booster_wbc_fsm on GitHub">
+              <a class="github-link" href="https://github.com/qianxvde/my_wbc_fsm" target="_blank" rel="noopener" aria-label="View my_wbc_fsm on GitHub">
                 <i class="fa-brands fa-github"></i> GitHub <span aria-hidden="true">↗</span>
               </a>
             </div>
